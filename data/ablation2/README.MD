@@ -1,3 +1,4 @@
-comparison for ablation 2
+python3 plot3_all_perf_stackablation.py
 
-ansor dynamic  VS ansor default
+
+data in ./ansor and ./ansordynamic
