@@ -57,19 +57,6 @@ network_mapping = {
     'yolo': 'Y'
 }
 
-# yolo_mapping = {
-#     'yolo0': 'Y0',
-#     'yolo1': 'Y2',
-#     'yolo2': 'Y4',
-#     'yolo3': 'Y5',
-#     'yolo4': 'Y8',
-#     'yolo5': 'Y9',
-#     'yolo6': 'Y12',
-#     'yolo7': 'Y13',
-#     'yolo8': 'Y14',
-#     'yolo9': 'Y18',
-#     'yolo10': 'Y19'
-# }
 
 # Function to plot all test cases from all networks in subplots
 def plot_all_testcases_in_subplots(data_folders, networks):
@@ -131,15 +118,8 @@ def plot_all_testcases_in_subplots(data_folders, networks):
         axs[i].set_ylabel('GFLOPS', fontsize=20)
         # set front size of ylabel
         axs[i].yaxis.label.set_size(20)
-        # if i == 0:  # 只在第一个子图中添加图例
-        #     axs[i].legend(loc='upper right', bbox_to_anchor=(1, 1), fontsize=16, prop={'size': 15}, framealpha=1, facecolor='white', edgecolor='black', ncol=3)
-
-
-    # # plt.xticks(fontsize=15)
-    # plt.yticks(fontsize=20)
-
-    # legend = plt.legend(loc='upper center', bbox_to_anchor=(0.12, 1), fontsize=18, prop={'size': 20})
-    # legend.get_frame().set_linewidth(2)
+        if i == 0:  # Add legend only to the first subplot
+            axs[i].legend(loc='upper right', bbox_to_anchor=(1, 1), fontsize=16, prop={'size': 15}, framealpha=1, facecolor='white', edgecolor='black', ncol=3)
 
     # fig.suptitle('GFLOPS Performance Comparison', fontsize=18)
     plt.tight_layout(rect=[0, 0.03, 1, 0.95])
@@ -149,6 +129,8 @@ def plot_all_testcases_in_subplots(data_folders, networks):
 
 # Define data folders and networks
 # data_folders = ['/home/chendi/githdd/plot/data/4090csv', '/home/chendi/githdd/plot/data/3090csv']
+
+
 data_folders = ['/home/chendi/githdd/plot/data/4090csv']
 data_folders = ['/home/chendi/githdd/plot/data/3090csv']
 networks = ['mm', 'yolo', 'resnet']
